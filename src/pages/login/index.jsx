@@ -20,6 +20,11 @@ const Login = () => {
     });
 
     const onSubmit = async (formData) => {
+        console.log(formData)
+        if (!formData.email || !formData.password) { 
+            console.log(formData)
+            alert('Por favor preencha o usuário e senha')
+        }
         try{
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
             
@@ -28,9 +33,9 @@ const Login = () => {
                 return
             }
 
-            alert('Usuário ou senha inválido')
         }catch(e){
             //TODO: HOUVE UM ERRO
+            alert('Usuário ou senha inválido')
         }
     };
 
@@ -41,7 +46,7 @@ const Login = () => {
         <Container>
             <Column>
                 <Title>A plataforma para você aprender com experts, dominar as principais tecnologias
-                 e entrar mais rápido nas empresas mais desejadas.</Title>
+                e entrar mais rápido nas empresas mais desejadas.</Title>
             </Column>
             <Column>
                 <Wrapper>
@@ -56,7 +61,7 @@ const Login = () => {
                 </form>
                 <Row>
                     <EsqueciText>Esqueci minha senha</EsqueciText>
-                    <CriarText>Criar Conta</CriarText>
+                    <CriarText href="/createAccount" >Criar Conta</CriarText>
                 </Row>
                 </Wrapper>
             </Column>

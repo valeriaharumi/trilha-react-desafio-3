@@ -26,5 +26,10 @@ export const ButtonContainer = styled.button`
             height: calc(100% + 10px);
             border-radius: 22px;
         }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor:unset;
+        }
     `}
 `
